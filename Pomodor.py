@@ -4,17 +4,25 @@ import time
 import os
 import sys
 from subprocess import call
-import winsound 
- 
+import winsound
+
+from pygame import mixer # Load the required library
 
 
-music = "alarm.wav"
-workMusic = "alarm.wav"
+
+
+
+workMusic = "alarm.mp3"
 
 loop = True
 played = False
-m = 45
+m = 16
 curM =0
+
+mixer.init()
+mixer.music.load(workMusic)
+
+
 while(loop):
     # now
     dt = list(time.localtime())
@@ -22,9 +30,10 @@ while(loop):
     minute = dt[4]
 
     if(m == minute and played == False):
-        winsound.PlaySound(music, winsound.SND_ALIAS)
         played = True
         curM = minute
+        mixer.music.play()
+
     if(played == True and curM != minute):
         played =False
     # display current time
