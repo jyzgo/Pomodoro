@@ -3,8 +3,6 @@
 import time
 import os
 import sys
-from subprocess import call
-import winsound
 
 from pygame import mixer # Load the required library
 
@@ -16,7 +14,7 @@ workMusic = "alarm.mp3"
 
 loop = True
 played = False
-m = 16
+m = 45
 curM =0
 
 mixer.init()
